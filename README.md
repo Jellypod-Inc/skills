@@ -17,7 +17,7 @@ Skills are structured instructions that teach AI coding assistants (like Claude 
 ### Claude Code
 
 ```bash
-npx skills add jellypod/skills
+npx skills add Jellypod-Inc/skills
 ```
 
 ### Manual

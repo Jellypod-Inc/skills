@@ -39,7 +39,7 @@ Before diving into endpoints, here's the mental model:
 - **Host** — An AI persona that narrates episodes. Hosts have names, backstories, personalities, and voices. A podcast can have multiple hosts who have natural conversations.
 - **Voice** — A TTS voice from the voice library. 100+ professional voices across 30+ languages, plus cloned voices. All voices can speak any language, but sound most natural in their native one.
 - **Source** — Reference material (URL, YouTube video, text, or file upload) that Jellypod uses as research context when generating episodes.
-- **Credits** — The platform currency. Credits are consumed when episodes are published (not when generated as drafts). Check your balance via the Account endpoint.
+- **Credits** — The platform currency. Credits are consumed when episodes are generated. Check your balance via the Account endpoint.
 
 ## Important: Async Operations
 
@@ -210,7 +210,7 @@ curl -X POST https://api.jellypod.com/v1/episodes/{episode_id}/publish \
   -d '{"scheduled_time": "2026-04-01T12:00:00Z"}'
 ```
 
-The episode must be in `draft` status with audio generated. Publishing triggers video rendering, credit deduction, and distribution. Episode statuses: `draft` > `generating` > `ready` > `scheduled`/`published` (or `failed`).
+The episode must be in `draft` status with audio generated. Publishing triggers video rendering and distribution. Episode statuses: `generating` > `draft` > `scheduled`/`published` (or `failed` from `generating`).
 
 **Upload cover image** (raw bytes):
 
@@ -236,6 +236,8 @@ Podcasts are series containers. You can create one manually or use the generate 
 | `DELETE` | `/podcasts/{podcast_id}` | Delete podcast + all episodes (irreversible) |
 | `PUT` | `/podcasts/{podcast_id}/image` | Upload cover image |
 | `POST` | `/podcasts/generate` | Generate a podcast with episodes (async — `202`) |
+
+Every organization starts with a default podcast called "My First Podcast." You can use it immediately to generate episodes without creating a new podcast first — just grab its ID from `GET /podcasts`.
 
 **Create a podcast:**
 
@@ -304,7 +306,7 @@ Here's the standard flow for generating a podcast episode programmatically:
 6. **Poll for completion** — `GET /episodes/{id}` every 5 seconds until status is `draft`
 7. **Publish** — `POST /episodes/{id}/publish` (consumes credits)
 
-Or skip steps 1-5 and use `POST /podcasts/generate` to do it all at once.
+Every organization starts with two default hosts. Run `GET /hosts` to see them. If the defaults work for you, skip straight to step 3 (or use `POST /podcasts/generate` to create a podcast and batch-generate episodes in one call).
 
 ## Error Handling
 
