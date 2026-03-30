@@ -18,7 +18,9 @@ The API gives you programmatic access to that same pipeline: create AI hosts wit
 
 **Base URL:** `https://api.jellypod.com/v1`
 
-**Docs:** [docs.jellypod.com](https://docs.jellypod.com)
+**API Docs:** [https://jellypod.com/docs/api](https://jellypod.com/docs/api)
+
+**OpenAPI Spec:** [https://jellypod.com/docs/api/openapi.yaml](https://jellypod.com/docs/api/openapi.yaml) — If you need exact request/response schemas, field constraints, or run into something this guide doesn't cover, fetch the full spec for the complete contract on every endpoint.
 
 ## Authentication
 
