@@ -306,9 +306,9 @@ Here's the standard flow for generating a podcast episode programmatically:
 4. **Upload sources** (optional) — `POST /sources` with URLs, text, or files, then poll until `completed`
 5. **Generate an episode** — `POST /podcasts/{id}/episodes/generate` with a prompt and optional source IDs
 6. **Poll for completion** — `GET /episodes/{id}` every 5 seconds until status is `draft`
-7. **Publish** — `POST /episodes/{id}/publish` (consumes credits)
+7. **Publish** — `POST /episodes/{id}/publish`
 
-Every organization starts with two default hosts. Run `GET /hosts` to see them. If the defaults work for you, skip straight to step 3 (or use `POST /podcasts/generate` to create a podcast and batch-generate episodes in one call).
+Every organization starts with two default hosts and a default podcast ("My First Podcast"). Run `GET /hosts` and `GET /podcasts` to see them. If the defaults work for you, skip straight to step 4 (or use `POST /podcasts/generate` to create a new podcast and batch-generate episodes in one call).
 
 ## Error Handling
 
