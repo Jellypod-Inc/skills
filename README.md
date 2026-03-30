@@ -6,7 +6,7 @@ Skills for AI assistants to use Jellypod.
 
 | Skill | Description |
 |-------|-------------|
-| **[platform-api](./platform-api/)** | Use the Jellypod API to create AI-powered podcasts — hosts, sources, episodes, and publishing |
+| **[jellypod-api](./jellypod-api/)** | Use the Jellypod API to create AI-powered podcasts — hosts, sources, episodes, and publishing |
 
 ## What are Skills?
 
