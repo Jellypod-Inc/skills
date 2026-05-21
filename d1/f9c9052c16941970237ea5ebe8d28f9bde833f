@@ -1,0 +1,20 @@
+jellypod-api/SKILL.md
+  s_3153e2ec3f1e91::t_cba94bc6826ab3 111
+  s_3153e2ec3f1e91::t_dd9f22d53ddd46 15,17,19,21-24,26,28,31,34,36,39,42,44,46,48-53,55,57,59-63,65,67,69,71,73-80,82,84,86,88,90,98,103-110,112-116,118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "d1f9c9052c16941970237ea5ebe8d28f9bde833f",
+  "prompts": {},
+  "sessions": {
+    "s_3153e2ec3f1e91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5f070794-dc1a-4c58-954c-cd763c78219a",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Pierson Marks <pierson@jellypod.ai>"
+    }
+  }
+}
